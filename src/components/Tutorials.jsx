@@ -121,7 +121,7 @@ export default function Tutorials() {
         >
           {cards.map((card) => (
             <SwiperSlide key={card.id}>
-              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 pb-3">
+              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 pb-7">
                 {/* 🔹 Thumbnail */}
                 <figure className="relative h-60">
                   <img

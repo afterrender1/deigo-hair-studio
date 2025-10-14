@@ -1,7 +1,10 @@
 import React from "react";
 
 export default function Footer() {
+     const currentYear = new Date().getFullYear();
   return (
+    <>
+    
     <footer className="footer p-10 text-sky-900 flex flex-col md:flex-row justify-around items-center">
       
       {/* Services */}
@@ -50,6 +53,11 @@ export default function Footer() {
           </a>
         </div>
       </nav>
+     
     </footer>
+     <div className="flex justify-center bg-sky-100 p-3">
+        <p> © {currentYear} AfterRender. All rights reserved.</p>
+      </div>
+    </>
   );
 }

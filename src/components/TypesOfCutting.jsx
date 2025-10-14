@@ -84,12 +84,12 @@ export default function TypesOfCut() {
         >
           {cuts.map((cut, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 pb-9">
                 <div className="relative group">
                   <img
                     src={cut.img}
                     alt={cut.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500 "
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   <h3 className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg font-semibold drop-shadow-lg">
