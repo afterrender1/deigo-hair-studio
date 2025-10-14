@@ -12,25 +12,25 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-white/80 backdrop-blur-sm shadow-sm fixed top-0 z-50">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 w-full z-50 backdrop-blur-md border-white/30 ">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
-          <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center gap-3">
-           
-              <span className="text-lg font-semibold text-slate-900">Deigo Studio</span>
-            </a>
-          </div>
+          <a href="#home" className="flex items-center gap-3">
+          
+            <span className="text-xl font-semibold text-sky-900 tracking-wide">
+              Deigo Hair Studio
+            </span>
+          </a>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex md:items-center md:gap-6">
-            <ul className="flex items-center gap-1">
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-4">
               {links.map((l) => (
                 <li key={l.name}>
                   <a
                     href={l.href}
-                    className="px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
+                    className="text-sky-900 font-medium hover:text-indigo-700 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/30"
                   >
                     {l.name}
                   </a>
@@ -38,54 +38,93 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA button */}
-            <div>
-              <a
-                href="#contact"
-                className="ml-4 inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold bg-gradient-to-r from-sky-600 to-sky-300 text-white shadow-md hover:opacity-95"
-                aria-label="Contact / Get Started"
-              >
-                Get Started
-              </a>
-            </div>
+            {/* CTA Button */}
+        
+<button
+  class="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-sky-500 rounded-md group"
+>
+  <span
+    class="absolute w-0 h-0 transition-all duration-500 ease-out bg-sky-600 rounded-full group-hover:w-56 group-hover:h-56"
+  ></span>
+  <span class="absolute bottom-0 left-0 h-full -ml-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-auto h-full opacity-100 object-stretch"
+      viewBox="0 0 487 487"
+    >
+      <path
+        fill-opacity=".1"
+        fill-rule="nonzero"
+        fill="#FFF"
+        d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z"
+      ></path>
+    </svg>
+  </span>
+  <span class="absolute top-0 right-0 w-12 h-full -mr-3">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="object-cover w-full h-full"
+      viewBox="0 0 487 487"
+    >
+      <path
+        fill-opacity=".1"
+        fill-rule="nonzero"
+        fill="#FFF"
+        d="M487 486.7c-66.1-3.6-132.3-7.3-186.3-37s-95.9-85.3-126.2-137.2c-30.4-51.8-49.3-99.9-76.5-151.4C70.9 109.6 35.6 54.8.3 0H487v486.7z"
+      ></path>
+    </svg>
+  </span>
+  <span
+    class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"
+  ></span>
+  <span class="relative text-base font-semibold">Get Started !</span>
+</button>
+
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setOpen((s) => !s)}
-              aria-expanded={open}
-              aria-label="Toggle menu"
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:bg-slate-100"
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setOpen((s) => !s)}
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            className="md:hidden p-2 rounded-md text-sky-900 hover:bg-white/30"
+          >
+            <svg
+              className="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                {open ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+              {open ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
 
-        {/* Mobile menu panel */}
+        {/* Mobile Menu Panel */}
         {open && (
-          <div className="md:hidden mt-2 pb-4">
-            <ul className="space-y-1">
+          <div className="md:hidden mt-3 bg-white/40 backdrop-blur-md rounded-xl shadow-lg p-4">
+            <ul className="space-y-2">
               {links.map((l) => (
                 <li key={l.name}>
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100"
+                    className="block px-4 py-2 rounded-md font-medium text-sky-900 hover:bg-white/60"
                   >
                     {l.name}
                   </a>
@@ -93,11 +132,11 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <div className="mt-3 px-4">
+            <div className="mt-4">
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="w-full block text-center px-4 py-2 rounded-md font-semibold bg-gradient-to-r from-indigo-600 to-pink-500 text-white"
+                className="w-full block text-center px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-sky-600 via-indigo-500 to-pink-500 text-white shadow-md hover:scale-105 transition-transform"
               >
                 Get Started
               </a>
