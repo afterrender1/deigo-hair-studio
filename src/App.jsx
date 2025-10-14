@@ -2,6 +2,9 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Tutorials from './components/Tutorials'
+import Intro from './components/Introduction'
+import TypesOfCut from './components/TypesOfCutting'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -12,6 +15,9 @@ function App() {
     <Navbar/>
     <Hero/>
     <Tutorials/>
+    <Intro/>
+    <TypesOfCut/>
+    <Footer/>
     
 
     </>
