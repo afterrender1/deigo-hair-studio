@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import IntroImg from "../assets/introimg.png";
+import barber from "../assets/barber.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -27,41 +27,48 @@ export default function Intro() {
       }
     );
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full py-20" id="intro">
-      <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-5xl font-bold text-sky-500 drop-shadow-lg">
+    <section ref={sectionRef} className="relative w-full py-16 xs:py-20 sm:py-24" id="intro">
+      <div className="text-center mb-10 xs:mb-12 sm:mb-14">
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-sky-500 drop-shadow-lg">
           Introduction
         </h2>
-        <p className="text-slate-600 text-base sm:text-lg mt-2">
+        <p className="text-slate-600 text-sm xs:text-base sm:text-lg mt-1 xs:mt-2 sm:mt-3">
           Watch, learn & style like a pro with Diego
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8 grid md:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 items-center">
+          <div className="relative group">
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src={barber}
+              alt="Deigo Studio Intro"
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+
+          {/* Glow effect */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-pink-500/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition duration-500 blur-2xl"></div>
+        </div>
         {/* Left Content */}
         <div className="text-center md:text-left">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-slate-900 mb-3 xs:mb-4 sm:mb-5">
             Welcome to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-500">
               Deigo Studio
             </span>
           </h2>
-          <p className="text-slate-700 text-lg mb-6 leading-relaxed">
-            At Deigo Studio, we believe that every cut tells a story. Our
-            mission is to inspire and teach creative shortcuts that blend speed
-            with precision — empowering barbers and stylists everywhere to
-            create their signature style.
+          <p className="text-slate-700 text-sm xs:text-base sm:text-lg mb-4 xs:mb-6 leading-relaxed">
+            At Deigo Studio, we believe that every cut tells a story. Our mission is to inspire and teach creative shortcuts that blend speed with precision — empowering barbers and stylists everywhere to create their signature style.
           </p>
 
           {/* CTA Button */}
           <a href="#tutorials">
-            <button className="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-sky-500 rounded-md group">
+            <button className="relative inline-flex items-center justify-center px-6 xs:px-8 py-2 xs:py-2.5 overflow-hidden tracking-tighter text-sm xs:text-base sm:text-base md:text-base text-white bg-sky-500 rounded-md group">
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-sky-600 rounded-full group-hover:w-56 group-hover:h-56"></span>
               <span className="absolute bottom-0 left-0 h-full -ml-2">
                 <svg
@@ -92,26 +99,13 @@ export default function Intro() {
                 </svg>
               </span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"></span>
-              <span className="relative text-base font-semibold">
-                Explore Tutorials!
-              </span>
+              <span className="relative font-semibold">Explore Tutorials!</span>
             </button>
           </a>
         </div>
 
         {/* Right Image */}
-        <div className="relative group">
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              src={IntroImg}
-              alt="Deigo Studio Intro"
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-
-          {/* Glow effect */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-pink-500/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition duration-500 blur-2xl"></div>
-        </div>
+      
       </div>
     </section>
   );

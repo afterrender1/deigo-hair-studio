@@ -22,42 +22,12 @@ export default function Tutorials() {
   const sectionRef = useRef(null);
 
   const cards = [
-    {
-      id: 1,
-      title: "Fade Cut Tutorial",
-      img: timg1,
-      video: "https://www.youtube.com/embed/FESVATkAGv8?si=R3X-cp8270eUmJxc",
-    },
-    {
-      id: 2,
-      title: "Layered Hair Styling",
-      img: timg2,
-      video: "https://www.youtube.com/embed/lTRiuFIWV54",
-    },
-    {
-      id: 3,
-      title: "Beard Trim Perfection",
-      img: timg3,
-      video: "https://www.youtube.com/embed/VYOjWnS4cMY",
-    },
-    {
-      id: 4,
-      title: "Classic Scissor Cut",
-      img: timg4,
-      video: "https://www.youtube.com/embed/tgbNymZ7vqY",
-    },
-    {
-      id: 5,
-      title: "Men’s Taper Cut",
-      img: timg5,
-      video: "https://www.youtube.com/embed/3JZ_D3ELwOQ",
-    },
-    {
-      id: 6,
-      title: "Salon Finish Techniques",
-      img: timg6,
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
+    { id: 1, title: "Fade Cut Tutorial", img: timg1, video: "https://www.youtube.com/embed/FESVATkAGv8?si=R3X-cp8270eUmJxc" },
+    { id: 2, title: "Layered Hair Styling", img: timg2, video: "https://www.youtube.com/embed/lTRiuFIWV54" },
+    { id: 3, title: "Beard Trim Perfection", img: timg3, video: "https://www.youtube.com/embed/VYOjWnS4cMY" },
+    { id: 4, title: "Classic Scissor Cut", img: timg4, video: "https://www.youtube.com/embed/tgbNymZ7vqY" },
+    { id: 5, title: "Men’s Taper Cut", img: timg5, video: "https://www.youtube.com/embed/3JZ_D3ELwOQ" },
+    { id: 6, title: "Salon Finish Techniques", img: timg6, video: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
   ];
 
   // 🔹 GSAP Animation
@@ -79,34 +49,33 @@ export default function Tutorials() {
       }
     );
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
     <section
       id="tutorials"
       ref={sectionRef}
-      className="w-full py-20 text-white overflow-hidden"
+      className="w-full py-16 xs:py-20 sm:py-24 text-white overflow-hidden"
     >
       {/* 🔹 Header */}
-      <div className="text-center mb-12 animate__animated animate__fadeInDown">
-        <h2 className="text-2xl sm:text-5xl font-bold text-sky-500 drop-shadow-lg">
+      <div className="text-center mb-10 xs:mb-12 sm:mb-16">
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-sky-500 drop-shadow-lg">
           YouTube Tutorials
         </h2>
-        <p className="text-slate-600 text-base sm:text-lg mt-2">
+        <p className="text-slate-600 text-sm xs:text-base sm:text-lg mt-1 xs:mt-2 sm:mt-3">
           Watch, learn & style like a pro with Diego
         </p>
       </div>
 
       {/* 🔹 Swiper Carousel */}
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="relative max-w-7xl mx-auto px-4 xs:px-6 sm:px-10 lg:px-16">
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
-          spaceBetween={24}
+          spaceBetween={16}
           slidesPerView={1}
           breakpoints={{
+            480: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
@@ -117,18 +86,14 @@ export default function Tutorials() {
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
-          className="pb-12 mt-7"
+          className="pb-10 xs:pb-12 mt-5 xs:mt-6"
         >
           {cards.map((card) => (
             <SwiperSlide key={card.id}>
-              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 pb-7">
+              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 pb-6 xs:pb-7">
                 {/* 🔹 Thumbnail */}
-                <figure className="relative h-60">
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    className="w-full h-full object-cover"
-                  />
+                <figure className="relative h-48 xs:h-56 sm:h-60 md:h-64">
+                  <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
                   <button
                     onClick={() => setOpenVideo(card.video)}
                     className="absolute inset-0 flex justify-center items-center hover:bg-black/60 transition-all duration-300"
@@ -139,24 +104,20 @@ export default function Tutorials() {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="white"
-                      className="w-14 h-14 opacity-90 hover:scale-110 transition-transform"
+                      className="w-12 xs:w-14 h-12 xs:h-14 opacity-90 hover:scale-110 transition-transform"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8 5v14l11-7z"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 5v14l11-7z" />
                     </svg>
                   </button>
                 </figure>
 
                 {/* 🔹 Card Body */}
-                <div className="card-body px-5 py-4 flex flex-col justify-between">
-                  <h2 className="text-lg sm:text-xl font-semibold text-center mb-4">
+                <div className="card-body px-4 xs:px-5 py-3 xs:py-4 flex flex-col justify-between">
+                  <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-center mb-3 xs:mb-4">
                     {card.title}
                   </h2>
                   <button
-                    className="w-full py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-lg font-medium transition-all"
+                    className="w-full py-2 xs:py-2.5 bg-sky-500 hover:bg-sky-400 text-white rounded-lg font-medium text-sm xs:text-base transition-all"
                     onClick={() => setOpenVideo(card.video)}
                   >
                     Watch Now
@@ -169,33 +130,18 @@ export default function Tutorials() {
 
         {/* 🔹 Custom Nav Buttons */}
         <button
-          className="swiper-button-prev-custom hidden md:flex absolute top-1/2 left-0 transform -translate-y-1/2 duration-300 hover:text-white hover:bg-sky-700 text-sky-400 rounded-full p-3 shadow-lg z-10"
+          className="swiper-button-prev-custom hidden md:flex absolute top-1/2 left-0 transform -translate-y-1/2 duration-300 hover:text-white hover:bg-sky-700 text-sky-400 rounded-full p-2 xs:p-3 shadow-lg z-10"
           aria-label="Previous"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 xs:w-6 h-5 xs:h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-
         <button
-          className="swiper-button-next-custom hidden md:flex absolute top-1/2 right-0 transform -translate-y-1/2 duration-300 hover:text-white hover:bg-sky-700 text-sky-400 rounded-full p-3 shadow-lg z-10"
+          className="swiper-button-next-custom hidden md:flex absolute top-1/2 right-0 transform -translate-y-1/2 duration-300 hover:text-white hover:bg-sky-700 text-sky-400 rounded-full p-2 xs:p-3 shadow-lg z-10"
           aria-label="Next"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 xs:w-6 h-5 xs:h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -207,7 +153,7 @@ export default function Tutorials() {
           <div className="modal-box max-w-3xl bg-black/90 text-white backdrop-blur-md border border-sky-700">
             <iframe
               width="100%"
-              height="400"
+              height="300 xs:400"
               src={openVideo + "?autoplay=1"}
               title="YouTube video player"
               frameBorder="0"
@@ -216,10 +162,7 @@ export default function Tutorials() {
               className="rounded-lg"
             ></iframe>
             <div className="modal-action">
-              <button
-                className="btn btn-outline text-white btn-error"
-                onClick={() => setOpenVideo(null)}
-              >
+              <button className="btn btn-outline text-white btn-error" onClick={() => setOpenVideo(null)}>
                 Close
               </button>
             </div>
