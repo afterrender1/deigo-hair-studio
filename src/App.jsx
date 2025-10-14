@@ -5,6 +5,7 @@ import Tutorials from './components/Tutorials'
 import Intro from './components/Introduction'
 import TypesOfCut from './components/TypesOfCutting'
 import Footer from './components/Footer'
+import Contact from './components/Contact'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Tutorials/>
     <Intro/>
     <TypesOfCut/>
+    <Contact/>
     <Footer/>
     
 

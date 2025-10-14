@@ -23,10 +23,10 @@ export default function TypesOfCut() {
   ];
 
   return (
-    <section className="py-20  backdrop-blur-sm">
+    <section className="py-20  backdrop-blur-sm" id="cuts">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-extrabold text-sky-700 mb-4">
-          Types of <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-pink-500">Cuts</span>
+        <h2 className="text-5xl font-bold text-sky-500 mb-4">
+          Different Types of <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-500">Cuts</span>
         </h2>
         <p className="text-slate-700 mb-12 max-w-2xl mx-auto">
           Discover different haircut styles and learn the steps behind each technique. Swipe through to explore Deigo’s signature looks.
@@ -57,7 +57,7 @@ export default function TypesOfCut() {
                     alt={cut.title}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-sky-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   <h3 className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg font-semibold drop-shadow-lg">
                     {cut.title}
                   </h3>

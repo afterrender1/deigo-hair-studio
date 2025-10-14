@@ -3,12 +3,12 @@ import HeroVideo from "../assets/herovideo.mp4";
 
 export default function Hero() {
   return (
-    <section className="w-full backdrop-blur-md pt-24 border border-b-gray-600 pb-12 h-screen flex flex-col justify-center">
+    <section className="w-full backdrop-blur-md pt-24  pb-12 h-screen flex flex-col justify-center bg-sky-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Hero Text */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4">
+        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
           Hair Shortcut by{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-500">
             Deigo
           </span>
         </h1>
@@ -19,7 +19,7 @@ export default function Hero() {
 
         {/* Video Section */}
         <div className="mt-8 flex justify-center">
-          <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden ">
             <video
               className="w-full h-full object-cover"
               src={HeroVideo}

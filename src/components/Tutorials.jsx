@@ -62,10 +62,10 @@ export default function Tutorials() {
     >
       {/* 🔹 Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-sky-400 drop-shadow-lg">
+        <h2 className="text-2xl sm:text-5xl font-bold text-sky-500 drop-shadow-lg">
           YouTube Tutorials
         </h2>
-        <p className="text-gray-300 text-base sm:text-lg mt-2">
+        <p className="text-slate-600 text-base sm:text-lg mt-2">
           Watch, learn & style like a pro with Diego
         </p>
       </div>
@@ -87,13 +87,13 @@ export default function Tutorials() {
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
-          className="pb-12"
+          className="pb-12 mt-7"
         >
           {cards.map((card) => (
             <SwiperSlide key={card.id}>
-              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="card text-black rounded-2xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 pb-3">
                 {/* 🔹 Thumbnail */}
-                <figure className="relative h-56">
+                <figure className="relative h-60">
                   <img
                     src={card.img}
                     alt={card.title}
@@ -187,7 +187,7 @@ export default function Tutorials() {
             ></iframe>
             <div className="modal-action">
               <button
-                className="btn btn-outline btn-error"
+                className="btn btn-outline text-white btn-error"
                 onClick={() => setOpenVideo(null)}
               >
                 Close
