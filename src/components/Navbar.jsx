@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Menu, X, Search, Phone } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "#hero" },
     { name: "Tutorials", href: "#tutorials" },
     { name: "Intro", href: "#intro" },
     { name: "Cuts", href: "#cuts" },
@@ -12,7 +13,8 @@ export default function Navbar() {
   ];
 
   const CTAButton = (
-    <button className="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-sky-500 rounded-md group">
+   <a href="#contact">
+     <button className="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-sky-500 rounded-md group">
       <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-sky-600 rounded-full group-hover:w-56 group-hover:h-56"></span>
       <span className="absolute bottom-0 left-0 h-full -ml-2">
         <svg
@@ -45,6 +47,7 @@ export default function Navbar() {
       <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"></span>
       <span className="relative text-base font-semibold">Get Started!</span>
     </button>
+   </a>
   );
 
   return (
@@ -52,7 +55,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
-          <a href="#home" className="flex items-center gap-3">
+          <a href="#hero" className="flex items-center gap-3">
             <span className="text-2xl font-semibold text-sky-900 tracking-wide">
               <span className="text-sky-600">Deigo</span> Hair Studio
             </span>
@@ -65,13 +68,14 @@ export default function Navbar() {
                 <li key={l.name}>
                   <a
                     href={l.href}
-                    className="text-sky-900 font-medium hover:text-indigo-700 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/30"
+                    className="text-sky-900 font-medium hover:text-sky-700 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/30"
                   >
                     {l.name}
                   </a>
                 </li>
               ))}
             </ul>
+<span className="flex gap-1.5 justify-center items-center text-sky-500"><Phone size={18} /> <span className="font-medium" >+1 245 6484388</span></span>
             {CTAButton}
           </div>
 

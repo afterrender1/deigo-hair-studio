@@ -37,6 +37,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       className="w-full backdrop-blur-md pt-24 pb-12 h-screen flex flex-col justify-center bg-sky-100"
+      id="hero"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Hero Text */}
