@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // 🔹 Local Images
 import timg1 from "../assets/timg1.jpg";
@@ -13,8 +15,11 @@ import timg4 from "../assets/timg4.jpg";
 import timg5 from "../assets/timg5.jpg";
 import timg6 from "../assets/timg6.jpg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Tutorials() {
   const [openVideo, setOpenVideo] = useState(null);
+  const sectionRef = useRef(null);
 
   const cards = [
     {
@@ -55,13 +60,38 @@ export default function Tutorials() {
     },
   ];
 
+  // 🔹 GSAP Animation
+  useEffect(() => {
+    const el = sectionRef.current;
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
   return (
     <section
       id="tutorials"
+      ref={sectionRef}
       className="w-full py-20 text-white overflow-hidden"
     >
       {/* 🔹 Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 animate__animated animate__fadeInDown">
         <h2 className="text-2xl sm:text-5xl font-bold text-sky-500 drop-shadow-lg">
           YouTube Tutorials
         </h2>
@@ -71,7 +101,7 @@ export default function Tutorials() {
       </div>
 
       {/* 🔹 Swiper Carousel */}
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 ">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={24}
@@ -101,7 +131,7 @@ export default function Tutorials() {
                   />
                   <button
                     onClick={() => setOpenVideo(card.video)}
-                    className="absolute inset-0 flex justify-center items-center  hover:bg-black/60 transition-all duration-300"
+                    className="absolute inset-0 flex justify-center items-center hover:bg-black/60 transition-all duration-300"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
