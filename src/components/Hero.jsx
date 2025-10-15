@@ -50,15 +50,15 @@ export default function Hero() {
         {/* 🌟 Hero Title */}
         <h1
           className="
-            text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
-            font-extrabold 
+            text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-5xl 
+            font-bold 
             text-slate-900 
             leading-tight 
             mb-4 sm:mb-6 
           "
         >
           Hair Shortcut by{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-700">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-sky-500">
             Deigo
           </span>
         </h1>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Loading from "./Loading";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -7,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const sectionRef = useRef(null);
+  const [loading , setLoading] = useState(false)
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -32,10 +34,15 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
+    setLoading(true)
     e.preventDefault();
     console.log("📩 Contact Form Data:", formData);
-    alert("Thank you! Your message has been sent. (Check console)");
+    // alert("Thank you! Your message has been sent. (Check console)");
+   setTimeout(() => {
+    setLoading(false)
     setFormData({ name: "", email: "", message: "" });
+
+   }, 2000);
   };
 
   return (
@@ -111,7 +118,10 @@ export default function Contact() {
               className="relative inline-flex items-center justify-center px-6 xs:px-8 py-2.5 xs:py-3 overflow-hidden tracking-tighter text-white bg-sky-500 rounded-md group shadow-lg text-sm xs:text-base sm:text-lg"
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-sky-600 rounded-full group-hover:w-56 group-hover:h-56"></span>
-              <span className="relative z-10 font-semibold">Send Message</span>
+              <span className="relative z-10 font-semibold flex items-center gap-3">
+
+                {loading && <Loading size="w-4 h-4"/>} Send Message
+              </span>
             </button>
           </div>
         </form>
