@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="footer p-6 xs:p-8 sm:p-10 text-sky-900 flex flex-col md:flex-row justify-around items-start md:items-center gap-6 xs:gap-8 sm:gap-12 bg-white/90 backdrop-blur-md">
+      <footer className="footer p-6 xs:p-8 sm:p-10 text-sky-900 flex flex-row md:flex-row justify-around items-start md:items-center gap-6 xs:gap-8 sm:gap-12 bg-white/90 backdrop-blur-md">
         {/* Services */}
         <nav className="text-center md:text-left">
           <h6 className="footer-title font-bold mb-3 text-base xs:text-lg sm:text-xl">Services</h6>
