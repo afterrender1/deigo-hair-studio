@@ -91,10 +91,12 @@ export default function Hero() {
           <video
             className="w-full h-full object-cover"
             src="/herovideo.mp4"
+            poster="/images/hero-poster.webp"  
             autoPlay
             loop
             muted
             playsInline
+            preload="none"                   
           />
         </div>
       </div>
