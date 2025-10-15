@@ -44,33 +44,41 @@ export default function Process() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-20 bg-gradient-to-br from-sky-100 via-white to-sky-200 h-screen mb-80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-sky-500 text-center mb-6">
+    <section
+      ref={sectionRef}
+      id="process"
+      className="w-full py-20 bg-gradient-to-br from-sky-100 via-white to-sky-200"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        {/* 🔹 Heading */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-sky-500 text-center mb-4">
           Our Process
         </h1>
         <p className="text-slate-700 text-base sm:text-lg lg:text-xl text-center mb-12 leading-relaxed">
           Follow our step-by-step process to see how Deigo Hair Studio transforms your style.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Step Indicator */}
-          <div className="relative md:w-1/4 flex flex-col items-start gap-6">
+        {/* 🔹 Main Content */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-14">
+          {/* Step Indicators (Left) */}
+          <div className="relative md:w-1/4 flex flex-col items-center gap-6">
             {/* Vertical Line */}
-            <div className="absolute top-5 left-4 md:left-6 h-80 w-1 bg-gray-300 rounded-full"></div>
+            <div className="absolute top-5 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 h-[85%] w-1 bg-gray-300 rounded-full"></div>
+
             {/* Fill Line */}
             <div
-              className="absolute top-5 left-4 md:left-6 w-1 bg-sky-500 rounded-full transition-all duration-500"
+              className="absolute top-5 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 w-1 bg-sky-500 rounded-full transition-all duration-500"
               style={{
-                height: `${((activeStep - 1) / (steps.length - 1)) * 89}%`,
+                height: `${((activeStep - 1) / (steps.length - 1)) * 85}%`,
               }}
             ></div>
 
+            {/* Step Buttons */}
             {steps.map((step) => (
               <button
                 key={step.id}
                 onClick={() => setActiveStep(step.id)}
-                className={`flex items-center gap-2 z-10 relative px-3 py-4 rounded-full font-semibold text-sm sm:text-base transition-colors ${
+                className={`flex sm:flex-row justify-center gap-2 z-10 relative px-3 py-4 rounded-full font-semibold text-sm sm:text-base transition-colors w-60 sm:w-60 md:w-60 text-center ${
                   activeStep >= step.id
                     ? "bg-sky-500 text-white"
                     : "bg-white border border-sky-300 text-sky-900 hover:bg-sky-100"
@@ -84,15 +92,18 @@ export default function Process() {
             ))}
           </div>
 
-          {/* Active Step Content */}
+          {/* Step Content (Right / Below in mobile) */}
           <div className="md:w-3/4">
             {steps
               .filter((step) => step.id === activeStep)
               .map((step) => (
-                <div key={step.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-                  {/* Text */}
-                  <div>
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-sky-500 mb-4">
+                <div
+                  key={step.id}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center"
+                >
+                  {/* Text First */}
+                  <div className="order-1 md:order-1 text-center md:text-left">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-sky-500 mb-3 sm:mb-4">
                       Step {step.id}: {step.title}
                     </h2>
                     <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed">
@@ -100,13 +111,15 @@ export default function Process() {
                     </p>
                   </div>
 
-                  {/* Image */}
-                  <div className="overflow-hidden rounded-2xl shadow-2xl">
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                    />
+                  {/* Image Below (on mobile) */}
+                  <div className="order-2 md:order-2">
+                    <div className="overflow-hidden rounded-2xl shadow-2xl">
+                      <img
+                        src={step.img}
+                        alt={step.title}
+                        className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
                 </div>
               ))}

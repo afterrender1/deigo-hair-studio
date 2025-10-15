@@ -60,10 +60,10 @@ export default function Tutorials() {
     >
       {/* 🔹 Header */}
       <div className="text-center mb-10 xs:mb-12 sm:mb-16">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-sky-500 drop-shadow-lg">
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-sky-500 drop-shadow-lg">
           YouTube Tutorials
         </h2>
-        <p className="text-slate-600 text-sm xs:text-base sm:text-lg mt-1 xs:mt-2 sm:mt-3">
+        <p className="text-slate-600 text-sm xs:text-base sm:text-lg mt-2">
           Watch, learn & style like a pro with Diego
         </p>
       </div>
@@ -147,27 +147,33 @@ export default function Tutorials() {
         </button>
       </div>
 
-      {/* 🔹 Video Modal */}
+      {/* 🔹 Improved Responsive Video Modal */}
       {openVideo && (
-        <dialog open className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box max-w-3xl bg-black/90 text-white backdrop-blur-md border border-sky-700">
-            <iframe
-              width="100%"
-              height="300 xs:400"
-              src={openVideo + "?autoplay=1"}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-lg"
-            ></iframe>
-            <div className="modal-action">
-              <button className="btn btn-outline text-white btn-error" onClick={() => setOpenVideo(null)}>
-                Close
-              </button>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 sm:p-6 animate-fadeIn"
+        >
+          <div className="relative w-full max-w-3xl bg-black rounded-2xl shadow-xl border border-sky-700 overflow-hidden transform animate-scaleIn">
+            {/* Responsive 16:9 container */}
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src={openVideo + (openVideo.includes("?") ? "&autoplay=1" : "?autoplay=1")}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+              ></iframe>
             </div>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setOpenVideo(null)}
+              className="absolute -top-0 -right-0 bg-red-600 hover:bg-red-700 text-white rounded-full w-9 h-9 flex items-center justify-center shadow-lg transition-all"
+            >
+              ✕
+            </button>
           </div>
-        </dialog>
+        </div>
       )}
     </section>
   );

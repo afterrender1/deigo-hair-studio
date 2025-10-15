@@ -40,7 +40,7 @@ export default function Hero() {
         w-full 
         min-h-[80vh] sm:min-h-[90vh] lg:min-h-screen 
         flex flex-col justify-center 
-        bg-gradient-to-b from-sky-50 via-white to-sky-100 
+        bg-sky-100 
         py-16 sm:py-20 lg:py-28 
         px-4 sm:px-6 lg:px-8
         relative overflow-hidden

@@ -10,22 +10,15 @@ import Process from "./components/Process"; // Import new page
 
 function App() {
   return (
-    <Router>
+     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <>
             <Hero />
             <Tutorials />
             <Intro />
             <TypesOfCut />
+            <Process/>
             <Contact />
-          </>
-        } />
-        <Route path="/process" element={<Process />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Footer /></>
   );
 }
 

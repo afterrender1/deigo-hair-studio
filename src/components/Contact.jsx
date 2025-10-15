@@ -49,7 +49,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="w-full py-16 xs:py-20 sm:py-24 bg-gradient-to-br from-sky-100 via-white to-sky-200"
+      className="w-full py-16 xs:py-20 sm:py-24 "
     >
       <div className="max-w-5xl mx-auto px-4 xs:px-6 lg:px-10">
         <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-sky-500 text-center mb-4 xs:mb-6 sm:mb-8">
