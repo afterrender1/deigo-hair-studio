@@ -63,7 +63,10 @@ export default function Intro() {
             </span>
           </h2>
           <p className="text-slate-700 text-sm xs:text-base sm:text-lg mb-4 xs:mb-6 leading-relaxed">
-            At Deigo Studio, we believe that every cut tells a story. Our mission is to inspire and teach creative shortcuts that blend speed with precision — empowering barbers and stylists everywhere to create their signature style.
+           Here we make haircutting simple. I’ll show you how to cut your own hair step by step through short, easy videos that anyone can follow. From clean fades to simple trims and fresh styles, you’ll learn how to do it all by yourself with confidence.
+
+
+
           </p>
 
           {/* CTA Button */}

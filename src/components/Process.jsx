@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Step1Img from "/step1.jpg";
-import Step2Img from "/step2.jpg";
-import Step3Img from "/step3.jpg";
-import Step4Img from "/step4.jpg";
-import Step5Img from "/step5.jpg";
+import Step1Img from "/hairstyles.webp";
+import Step2Img from "/barbertools.webp";
+import Step3Img from "/barberseat.avif";
+import Step4Img from "/barberteaching.png";
+import Step5Img from "/finallook.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,11 +15,38 @@ export default function Process() {
   const [activeStep, setActiveStep] = useState(1);
 
   const steps = [
-    { id: 1, title: "Consultation", description: "We understand your style goals and assess your hair type.", img: Step1Img },
-    { id: 2, title: "Precision Cutting", description: "Our expert stylists execute your haircut with accuracy and flair.", img: Step2Img },
-    { id: 3, title: "Styling & Finish", description: "Final touches, styling tips, and product recommendations.", img: Step3Img },
-    { id: 4, title: "Color & Treatments", description: "Optional color or treatment services to enhance your look.", img: Step4Img },
-    { id: 5, title: "Review & Advice", description: "We ensure satisfaction and give tips for maintaining your style.", img: Step5Img },
+    {
+      id: 1,
+      title: "Pick Your Favorite Hairstyle",
+      description: "Choose the look you want to master.",
+      img: Step1Img,
+    },
+    {
+      id: 2,
+      title: "Grab Your Tools",
+      description: "Get your scissors, trimmer, and all the essentials ready.",
+      img: Step2Img,
+    },
+    {
+      id: 3,
+      title: "Take Your Seat",
+      description: "Find a comfortable spot with good lighting and a mirror.",
+      img: Step3Img,
+    },
+    {
+      id: 4,
+      title: "Follow Along with the Video",
+      description:
+        "Watch and cut carefully — stay safe while doing it.",
+      img: Step4Img,
+    },
+    {
+      id: 5,
+      title: "Admire Your Fresh Look",
+      description:
+        "You did it yourself! Enjoy your new style with confidence.",
+      img: Step5Img,
+    },
   ];
 
   useEffect(() => {
@@ -52,10 +79,10 @@ export default function Process() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         {/* 🔹 Heading */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-sky-500 text-center mb-4">
-          Our Process
+          Learn to Cut Your Own Hair with Confidence
         </h1>
         <p className="text-slate-700 text-base sm:text-lg lg:text-xl text-center mb-12 leading-relaxed">
-          Follow our step-by-step process to see how Deigo Hair Studio transforms your style.
+          Follow our simple step-by-step guide to master your own haircut like a pro.
         </p>
 
         {/* 🔹 Main Content */}
@@ -74,22 +101,25 @@ export default function Process() {
             ></div>
 
             {/* Step Buttons */}
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => setActiveStep(step.id)}
-                className={`flex sm:flex-row justify-center gap-2 z-10 relative px-3 py-4 rounded-full font-semibold text-sm sm:text-base transition-colors w-60 sm:w-60 md:w-60 text-center ${
-                  activeStep >= step.id
-                    ? "bg-sky-500 text-white"
-                    : "bg-white border border-sky-300 text-sky-900 hover:bg-sky-100"
-                }`}
-              >
-                <span className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-sky-500 bg-white text-sky-500 font-semibold">
-                  {step.id}
-                </span>
-                <span className="truncate">{step.title}</span>
-              </button>
-            ))}
+   {steps.map((step) => (
+  <button
+    key={step.id}
+    onClick={() => setActiveStep(step.id)}
+    className={`flex flex-row items-center justify-start gap-3 z-10 relative px-4 py-4 rounded-full font-semibold transition-colors w-full sm:w-64 md:w-80 text-center ${
+      activeStep >= step.id
+        ? "bg-sky-500 text-white"
+        : "bg-white border border-sky-300 text-sky-900 hover:bg-sky-100"
+    }`}
+  >
+    <span className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-sky-500 bg-white text-sky-500 font-semibold">
+      {step.id}
+    </span>
+    <span className="text-sm sm:text-base md:text-sm lg:text-base text-left whitespace-normal leading-snug">
+      {step.title}
+    </span>
+  </button>
+))}
+
           </div>
 
           {/* Step Content (Right / Below in mobile) */}

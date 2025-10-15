@@ -10,10 +10,10 @@ export default function Footer() {
         <nav className="text-center md:text-left">
           <h6 className="footer-title font-bold mb-3 text-base xs:text-lg sm:text-xl">Services</h6>
           <ul className="space-y-2 text-sm xs:text-base sm:text-lg">
-            <li><a href="#branding" className="link link-hover">Branding</a></li>
-            <li><a href="#design" className="link link-hover">Design</a></li>
-            <li><a href="#marketing" className="link link-hover">Marketing</a></li>
-            <li><a href="#advertisement" className="link link-hover">Advertisement</a></li>
+            <li><a href="#intro" className="link link-hover">Branding</a></li>
+            <li><a href="#cuts" className="link link-hover">Design</a></li>
+            <li><a href="#cits" className="link link-hover">Marketing</a></li>
+            <li><a href="#hero" className="link link-hover">Advertisement</a></li>
           </ul>
         </nav>
 
@@ -21,16 +21,16 @@ export default function Footer() {
         <nav className="text-center md:text-left">
           <h6 className="footer-title font-bold mb-3 text-base xs:text-lg sm:text-xl">Company</h6>
           <ul className="space-y-2 text-sm xs:text-base sm:text-lg">
-            <li><a href="#about" className="link link-hover">About Us</a></li>
+            <li><a href="#intro" className="link link-hover">About Us</a></li>
             <li><a href="#contact" className="link link-hover">Contact</a></li>
-            <li><a href="#jobs" className="link link-hover">Jobs</a></li>
-            <li><a href="#press" className="link link-hover">Press Kit</a></li>
+            <li><a href="#cuts" className="link link-hover">Cuts</a></li>
+            <li><a href="#tutorials" className="link link-hover">Tutorials</a></li>
           </ul>
         </nav>
 
         {/* Social */}
         <nav className="text-center md:text-left">
-          <h6 className="footer-title font-bold mb-3 text-base xs:text-lg sm:text-xl">Social</h6>
+          <h6 className="footer-title font-bold mb-3 text-base xs:text-lg sm:text-xl">Social Networks</h6>
           <div className="flex gap-4 justify-center md:justify-start">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-sky-500">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="fill-current">
@@ -51,7 +51,7 @@ export default function Footer() {
             </a>
           </div>
         </nav>
-      </footer>
+      </footer> 
 
       <div className="flex justify-center bg-sky-100 p-3 text-sm xs:text-base sm:text-lg">
         <p>© {currentYear} AfterRender. All rights reserved.</p>
