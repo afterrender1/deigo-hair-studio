@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
@@ -91,7 +92,7 @@ export default function Hero() {
           <video
             className="w-full h-full object-cover"
             src="/herovideo.mp4"
-            poster="/images/hero-poster.webp"  
+            poster="/poster.png"  
             autoPlay
             loop
             muted
