@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import HeroVideo from "../assets/herovideo.mp4";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -91,7 +90,7 @@ export default function Hero() {
         >
           <video
             className="w-full h-full object-cover"
-            src={HeroVideo}
+            src="/herovideo.mp4"
             autoPlay
             loop
             muted
